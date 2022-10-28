@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homework/country/country_screen.dart';
 import 'package:homework/routing/get.pages.dart';
 import 'package:homework/student/student_screen.dart';
 
@@ -26,6 +27,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         getPages: getPages,
-        home: StudentScreen());
+        home: CountryScreen());
   }
 }

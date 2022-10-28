@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homework/country/country_screen.dart';
 import 'package:homework/student/student_controllers.dart';
 
 class StudentScreen extends GetWidget<StudentController> {
   StudentScreen({Key? key}) : super(key: key);
-  static const routeName = "/student_screen";
+  static const routeName = "/country_screen";
   var vizepuan;
   var finalpuan;
   var ortalama;
@@ -19,7 +20,15 @@ class StudentScreen extends GetWidget<StudentController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(),
+        appBar: AppBar(
+          actions: [
+            BackButton(
+              onPressed: () {
+                _goToCountry();
+              },
+            )
+          ],
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -104,5 +113,9 @@ class StudentScreen extends GetWidget<StudentController> {
     } else {
       result = 'kaldın';
     }
+  }
+
+  void _goToCountry() {
+    Get.toNamed(CountryScreen.routeName);
   }
 }
