@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:homework/country/country_controller.dart';
 
@@ -9,7 +10,9 @@ class CountryScreen extends GetWidget<CountryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+      ),
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
@@ -18,16 +21,16 @@ class CountryScreen extends GetWidget<CountryController> {
               itemBuilder: (context, index) {
                 return Dismissible(
                   onDismissed: (direction) {
-                    controller.country.removeAt(index);
+                    controller.country.remove(index);
+                    print(controller.country[index]);
                     print('Listeden Çıkartıldı');
-                    print(controller.country);
                   },
                   background: Container(
                     color: Colors.red,
                   ),
                   key: Key(controller.country[index]),
                   child: Card(
-                    color: Colors.amber.shade300,
+                    color: Colors.yellow,
                     child: ListTile(
                       title: Text(controller.country[index]),
                     ),
@@ -37,6 +40,30 @@ class CountryScreen extends GetWidget<CountryController> {
               shrinkWrap: true,
             ),
           ),
+          TextButton(
+              child: Icon(
+                Icons.add_box,
+                color: Colors.red,
+                size: 79,
+              ),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Yeni ülke ekleyiniz'),
+                          content: TextField(
+                            controller: controller.newcountry,
+                          ),
+                          actions: [
+                            TextButton(
+                                onPressed: (() {
+                                  controller.country
+                                      .add(controller.newcountry.text);
+                                }),
+                                child: Text("kaydet"))
+                          ],
+                        ));
+              })
         ]),
       ),
     );
