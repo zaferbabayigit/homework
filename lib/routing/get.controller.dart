@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:homework/country/country_controller.dart';
+import 'package:homework/fit/fit_controller.dart';
 import 'package:homework/student/student_controllers.dart';
 
 Future getControllers() async {
@@ -9,4 +10,5 @@ Future getControllers() async {
   final List<Future> lateInitializers = [];
   Get.create(() => StudentController(), permanent: false);
   Get.create(() => CountryController(), permanent: false);
+  Get.create(() => FitController(), permanent: false);
 }
