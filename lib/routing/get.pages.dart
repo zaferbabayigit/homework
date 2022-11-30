@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:homework/country/country_screen.dart';
 import 'package:homework/favorite/favorite_list/favorite_screen.dart';
 import 'package:homework/fit/fit_screen.dart';
+import 'package:homework/login/login_screen.dart';
+
 import 'package:homework/student/student_screen.dart';
 
 import '../favorite/food_list/food_screen.dart';
@@ -16,4 +18,5 @@ List<GetPage<dynamic>> getPages = [
       page: () => FavoriteScreen(
             list: [],
           )),
+  GetPage(name: LoginScreen.routeName, page: () => LoginScreen()),
 ];
