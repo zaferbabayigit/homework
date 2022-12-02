@@ -1,8 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homework/country/country_screen.dart';
 import 'package:homework/favorite/favorite_list/favorite_screen.dart';
 import 'package:homework/favorite/food_list/food_screen.dart';
+import 'package:homework/firebase_options.dart';
 import 'package:homework/fit/fit_screen.dart';
 import 'package:homework/login/login_screen.dart';
 
@@ -13,7 +15,9 @@ import 'routing/get.controller.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await getControllers();
 
   runApp(const MyApp());

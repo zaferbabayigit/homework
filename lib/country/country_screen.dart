@@ -1,12 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:homework/country/country_controller.dart';
+import 'package:homework/login/login_screen.dart';
 
 class CountryScreen extends GetWidget<CountryController> {
   CountryScreen({Key? key}) : super(key: key);
   static const routeName = "/student_screen";
-
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,13 +62,24 @@ class CountryScreen extends GetWidget<CountryController> {
                                   controller.country
                                       .add(controller.newcountry.text);
                                 }),
-                                child: Text("kaydet"))
+                                child: Text("kaydet")),
+                            FloatingActionButton(
+                              child: Text('Logout'),
+                              onPressed: () {
+                                auth.signOut();
+                                _goToLogin();
+                              },
+                            )
                           ],
                         ));
               })
         ]),
       ),
     );
+  }
+
+  void _goToLogin() {
+    Get.offAllNamed(LoginScreen.routeName);
   }
 }
 //3. app -> 10 tane ülke default sıralı bir liste var. 
