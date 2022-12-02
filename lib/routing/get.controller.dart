@@ -4,6 +4,7 @@ import 'package:homework/favorite/favorite_list/favorite_controller.dart';
 import 'package:homework/favorite/food_list/food_controller.dart';
 import 'package:homework/fit/fit_controller.dart';
 import 'package:homework/login/login_controller.dart';
+import 'package:homework/register/register_controller.dart';
 
 import 'package:homework/student/student_controllers.dart';
 
@@ -18,4 +19,5 @@ Future getControllers() async {
   Get.create(() => FoodController(), permanent: false);
   Get.create(() => FavoriteController(), permanent: false);
   Get.create(() => LoginController(), permanent: false);
+  Get.create(() => RegisterController(), permanent: false);
 }

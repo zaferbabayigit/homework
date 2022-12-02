@@ -7,6 +7,7 @@ import 'package:homework/login/login_screen.dart';
 import 'package:homework/student/student_screen.dart';
 
 import '../favorite/food_list/food_screen.dart';
+import '../register/register_screen.dart';
 
 List<GetPage<dynamic>> getPages = [
   GetPage(name: StudentScreen.routeName, page: () => StudentScreen()),
@@ -19,4 +20,5 @@ List<GetPage<dynamic>> getPages = [
             list: [],
           )),
   GetPage(name: LoginScreen.routeName, page: () => LoginScreen()),
+  GetPage(name: RegisterScreen.routeName, page: () => RegisterScreen()),
 ];
